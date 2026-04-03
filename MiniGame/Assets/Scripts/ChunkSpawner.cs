@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class ChunkSpawner : MonoBehaviour
@@ -7,8 +8,9 @@ public class ChunkSpawner : MonoBehaviour
     public float chunkWidth = 20f;
     public int chunksAhead = 3;
     public float despawnDistance = 40f;
+    public GameObject startChunkPrefab;
 
-    [Header("Referances")]
+    [Header("References")]
     public Transform player;
 
     private float nextSpawn = 0f;
@@ -16,21 +18,30 @@ public class ChunkSpawner : MonoBehaviour
 
     void Start()
     {
-        if(player.position.x + chunkWidth * chunksAhead > nextSpawn)
+        GameObject startChunk = Instantiate(startChunkPrefab, new Vector3(nextSpawn, 0, 0), Quaternion.identity);
+        activeChunks.Add(startChunk);
+        nextSpawn += chunkWidth;
+        for (int i = 0; i < chunksAhead; i++)
         {
             SpawnNextChunk();
         }
+    }
 
+    void Update()
+    {
+        if (player.position.x + chunkWidth * chunksAhead > nextSpawn)
+        {
+            SpawnNextChunk();
+        }
         CleanOldChunks();
     }
 
-    void SpawnNextChunk
+    void SpawnNextChunk()
     {
-        internal randomIndex = Random.Range(0, chunkPrefabs.Length);
-        GameObject newChunk = Instantiate(chunkPrefabs[randomIndex],new Vector3(nextSpawnX, 0, 0), Quaternion.identity);
-
+        int randomIndex = Random.Range(0, chunkPrefabs.Length);
+        GameObject newChunk = Instantiate(chunkPrefabs[randomIndex], new Vector3(nextSpawn, 0, 0), Quaternion.identity);
         activeChunks.Add(newChunk);
-        nextSpawnX += chunkWidth;
+        nextSpawn += chunkWidth;
     }
 
     void CleanOldChunks()
@@ -38,8 +49,7 @@ public class ChunkSpawner : MonoBehaviour
         for (int i = activeChunks.Count - 1; i >= 0; i--)
         {
             if (activeChunks[i] == null) continue;
-
-            if(player.position.x - activeChunks[i].transform.position.x > despawnDistance)
+            if (player.position.x - activeChunks[i].transform.position.x > despawnDistance)
             {
                 Destroy(activeChunks[i]);
                 activeChunks.RemoveAt(i);

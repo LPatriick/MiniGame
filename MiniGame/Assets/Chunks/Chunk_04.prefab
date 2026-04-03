@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4356225198610867280}
   m_Layer: 0
   m_Name: spawnpoint_single_spike
-  m_TagString: Untagged
+  m_TagString: SpawnPoint_Spike
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -595,6 +595,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4409200555346041468}
+  - component: {fileID: 7271194522273082584}
   m_Layer: 0
   m_Name: Chunk_04
   m_TagString: Untagged
@@ -612,7 +613,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.018355502, y: -0.157454, z: -1}
-  m_LocalScale: {x: 0.05, y: 0.1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7273895881406869467}
@@ -635,6 +636,23 @@ Transform:
   - {fileID: 4356225198610867280}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7271194522273082584
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1681357352643696571}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57ac9c8e4ad98e946b20d4f214cca36f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ObstacleSpawner
+  singleSpikePrefab:
+  - {fileID: 3902003852675988328, guid: 1ebc0557ae03419408e3d7bd2e8b5764, type: 3}
+  tripleSpikePrefab:
+  - {fileID: 3250795374494344140, guid: b7bd17530abc69b4b83e204c7c644ff0, type: 3}
+  spawnChance: 60
 --- !u!1 &2353319526583410006
 GameObject:
   m_ObjectHideFlags: 0
@@ -1571,7 +1589,7 @@ GameObject:
   - component: {fileID: 1494540042415551957}
   m_Layer: 0
   m_Name: spawnpoint_triple_spike
-  m_TagString: Untagged
+  m_TagString: SpawnPoint_Spike
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
