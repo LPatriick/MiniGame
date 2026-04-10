@@ -8,6 +8,8 @@ TagManager:
   - TripleSpikeSpawn
   - SIngleSpikeSpawn
   - Ground
+  - Spike
+  - DeathZone
   layers:
   - Default
   - TransparentFX
