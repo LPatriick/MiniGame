@@ -5,6 +5,7 @@ public class PlayerControl : MonoBehaviour
 {
     public float moveSpeed = 5f;
     public float jumpForce = 10f;
+    public float Lspeed = 2.5f;
     private Rigidbody2D rb;
     private Animator anim;
     bool isGrounded;
@@ -15,7 +16,14 @@ public class PlayerControl : MonoBehaviour
     }
     void Update()
     {
-        rb.linearVelocity = new Vector2(moveSpeed, rb.linearVelocity.y);
+        if (Keyboard.current.leftArrowKey.isPressed)
+        {
+            rb.linearVelocity = new Vector2(Lspeed, rb.linearVelocity.y);
+        }
+        else
+        {
+            rb.linearVelocity = new Vector2(moveSpeed, rb.linearVelocity.y);
+        }
         if (Keyboard.current.spaceKey.wasPressedThisFrame && isGrounded)
         {
             rb.linearVelocity = new Vector2(moveSpeed, jumpForce);
@@ -29,5 +37,15 @@ public class PlayerControl : MonoBehaviour
     void OnCollisionExit2D(Collision2D col)
     {
         isGrounded = false;
+    }
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Spike") || other.CompareTag("DeathZone"))
+            Die();
+    }
+    void Die()
+    {
+        Debug.Log("Dead");
+        Time.timeScale = 0f;
     }
 }

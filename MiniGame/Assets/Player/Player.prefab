@@ -157,7 +157,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_MaskInteraction: 0
   m_Sprite: {fileID: 8793639957104055765, guid: a1b4b2cf1d89492468c6bb697b797462, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -203,8 +203,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b49799e715832f4dbf9fbd71f6c56ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NewMonoBehaviourScript
-  moveSpeed: 5
-  jumpForce: 10
+  moveSpeed: 2
+  jumpForce: 2
 --- !u!1 &2240978777979622072
 GameObject:
   m_ObjectHideFlags: 0
