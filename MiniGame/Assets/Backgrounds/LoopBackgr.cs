@@ -19,7 +19,7 @@ public class LoopBackgr : MonoBehaviour
     }
     void Start()
     {
-        //incepit de la poz 0
+        //incepi de la poz 0
         bg1 = Instantiate(sBG, Vector3.zero, Quaternion.identity);
         //masori lungimea
         bgWidth = TWidth(bg1);

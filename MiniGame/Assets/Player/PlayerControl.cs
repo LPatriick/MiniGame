@@ -9,6 +9,7 @@ public class PlayerControl : MonoBehaviour
     private Rigidbody2D rb;
     private Animator anim;
     bool isGrounded;
+    public UIUP uiManager;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -41,7 +42,7 @@ public class PlayerControl : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Spike") || other.CompareTag("DeathZone"))
-            Die();
+            uiManager.Damage();
     }
     void Die()
     {

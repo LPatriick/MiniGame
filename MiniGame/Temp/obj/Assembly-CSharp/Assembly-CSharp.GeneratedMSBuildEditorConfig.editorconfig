@@ -1,6 +1,6 @@
 is_global = true
 build_property.RootNamespace = 
-build_property.ProjectDir = E:\Unity\MiniGame\MiniGame\
+build_property.ProjectDir = E:\Visual Studio\Unity\MiniGame\MiniGame\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.CsWinRTUseWindowsUIXamlProjections = false
